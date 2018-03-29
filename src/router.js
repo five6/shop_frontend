@@ -5,6 +5,34 @@ Vue.use(Router);
 
 const routes = [
   {
+    path: '*',
+    component: () => import('./view/goods'),
+    meta: {
+      title: '商品'
+    }
+  },
+  {
+    path: 'goods',
+    component: () => import('./view/goods'),
+    meta: {
+      title: '商品'
+    }
+  },
+  {
+    name: 'cart',
+    component: () => import('./view/cart'),
+    meta: {
+      title: '购物车'
+    }
+  },
+  {
+    name: 'chat',
+    component: () => import('./view/chat'),
+    meta: {
+      title: '客服'
+    }
+  },
+  {
     name: 'profile',
     component: () => import('./view/user/profile'),
     meta: {
