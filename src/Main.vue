@@ -1,9 +1,6 @@
 <template>
   <div id="app">
-    <van-cell-group class="item-list">
-      <van-cell is-link icon="points" title="我的积分" />
-      <van-cell is-link icon="gift" title="我收到的礼物" />
-    </van-cell-group>
+     <router-view />
   </div>
 </template>
 
@@ -21,7 +18,9 @@ export default {
 
 <style>
 body {
+  font-size: 16px;
   background-color: #f8f8f8;
+  -webkit-font-smoothing: antialiased;
 }
 
 .van-cell__title .van-icon {
