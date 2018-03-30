@@ -1,24 +1,24 @@
 # vantBuy
 使用有赞移动端Vue 组件库 vant 开发电子商城
 
-## Build Setup
+## 快速开始
 
-``` bash
-# install dependencies
+``` 脚本命令
+# 安装依赖
 npm install
 
-# serve with hot reload at localhost:8080
+# 运行项目
 npm run dev
 
-# build for production with minification
+# 用于产品环境构建
 npm run build
 
-# build for production and view the bundle analyzer report
+# 为生产构建并查看捆绑分析器报告
 npm run build --report
 
-# run unit tests
+# 单元测试
 npm run unit
 
-# run all tests
+# 测试
 npm test
 ```
