@@ -4,10 +4,12 @@
 // import Api from '../api';
 
 export default {
-  signin() {
+  // author
+  signin(user) {
   },
-  signup() {
+  signup(user) {
   },
-  addToCart() {},
-  signout() {}
+  signout(user) {},
+  // goods
+  addToCart() {}
 };

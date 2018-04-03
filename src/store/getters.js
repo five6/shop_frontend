@@ -1,5 +1,5 @@
 'use strict';
 
 export default {
-  user: state => state.user
+  author: state => state.author
 };

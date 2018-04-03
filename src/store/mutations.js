@@ -3,6 +3,6 @@
 export default {
   SIGNIN() {},
   SIGNUP() {},
-  ADDTOCART() {},
-  SIGNOUT() {}
+  SIGNOUT() {},
+  ADDTOCART() {}
 };
