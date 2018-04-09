@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <router-view />
-    <div>
+    <div class="tabbar-bottom">
       <van-tabbar v-model="active" @change="change">
         <van-tabbar-item icon="shop">商品</van-tabbar-item>
         <van-tabbar-item icon="cart" dot>购物车</van-tabbar-item>

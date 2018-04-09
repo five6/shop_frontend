@@ -19,6 +19,13 @@ const routes = [
     }
   },
   {
+    path: '/goods/:id',
+    component: () => import('./view/goods/detail'),
+    meta: {
+      title: '商品详细信息'
+    }
+  },
+  {
     name: 'cart',
     component: () => import('./view/cart'),
     meta: {
@@ -51,6 +58,20 @@ const routes = [
     component: () => import('./view/user/signup'),
     meta: {
       title: '注册'
+    }
+  },
+  {
+    name: 'address',
+    component: () => import('./view/address'),
+    meta: {
+      title: '收货地址'
+    }
+  },
+  {
+    name: 'address_create',
+    component: () => import('./view/address/create'),
+    meta: {
+      title: '收货地址'
     }
   }
 ];
