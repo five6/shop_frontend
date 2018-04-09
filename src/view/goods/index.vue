@@ -113,6 +113,7 @@ export default {
   padding-bottom: 50px;
 
   &-swipe {
+    height: 250px;
     img {
       width: 7.5rem;
       height: 7.5rem;
