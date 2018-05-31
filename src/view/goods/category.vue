@@ -1,8 +1,8 @@
 <template>
     <div class="products">
-        <van-swipe class="goods-swipe" :autoplay="3000">
-            <van-swipe-item v-for="(product, index) in products" :key="index">
-                <img :src="product.image" />
+        <van-swipe :autoplay="3000">
+            <van-swipe-item v-for="(item, index) in categories" :key="index">
+                <img v-lazy="item.image" />
             </van-swipe-item>
         </van-swipe>
          <van-tabbar v-model="active" @change="change">
@@ -21,7 +21,7 @@ import {
   Tabbar,
   TabbarItem
 } from 'vant';
-import { mapGetters } from 'vuex';
+
 export default {
   components: {
     [Swipe.name]: Swipe,
@@ -31,13 +31,9 @@ export default {
   },
   data() {
     return {
-      active: 0
+      active: 1,
+      categories: []
     };
-  },
-  computed: {
-    ...mapGetters([
-      'products'
-    ])
   },
   methods: {
     change(index) {
@@ -60,38 +56,6 @@ export default {
 };
 </script>
 
-<style lang="less">
-  .goods {
-  padding-bottom: 50px;
+<style lang="less" scoped>
 
-  &-swipe {
-    img {
-      width: 7.5rem;
-      height: 7.5rem;
-      display: block;
-    }
-  }
-
-  &-title {
-    font-size: 16px;
-  }
-
-  &-price {
-    color: #f44;
-  }
-
-  &-express {
-    color: #999;
-    font-size: 12px;
-    padding: 5px 15px;
-  }
-
-  &-cell-group {
-    margin: 15px 0;
-
-    .van-cell__value {
-      color: #999;
-    }
-  }
-}
 </style>

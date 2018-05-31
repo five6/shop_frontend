@@ -19,6 +19,20 @@ const routes = [
     }
   },
   {
+    path: '/goods/:id',
+    component: () => import('./view/goods/detail'),
+    meta: {
+      title: '详情'
+    }
+  },
+  {
+    name: 'category',
+    component: () => import('./view/goods/category'),
+    meta: {
+      title: '分类'
+    }
+  },
+  {
     name: 'cart',
     component: () => import('./view/cart'),
     meta: {

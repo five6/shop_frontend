@@ -1,14 +1,14 @@
 <template>
   <div id="app">
     <router-view />
-    <div>
+    <!-- <div>
       <van-tabbar v-model="active" @change="change">
         <van-tabbar-item icon="shop">商品</van-tabbar-item>
         <van-tabbar-item icon="cart" dot>购物车</van-tabbar-item>
         <van-tabbar-item icon="records" info="5">会员中心</van-tabbar-item>
         <van-tabbar-item icon="chat">客服</van-tabbar-item>
       </van-tabbar>
-    </div>
+    </div> -->
   </div>
 </template>
 
