@@ -2,6 +2,7 @@
 
 export default {
   user: {}, // 用户
+  // 最热产品
   hottest: [
     {
       title: '美国伽力果（约680g/3个）',
@@ -25,6 +26,9 @@ export default {
         'https://img.yzcdn.cn/public_files/2017/10/24/1791ba14088f9c2be8c610d0a6cc0f93.jpeg'
       ]
     }
+  ],
+  // 最新发布产品
+  latest: [
   ],
   products: [
     {
@@ -98,5 +102,5 @@ export default {
   cart: {}, // 购物车
   addresses: {}, // 地址
   customerServices: {}, // 客服信息
-  coupon: [] // 优惠券
+  coupon: [] // 优惠券,
 };

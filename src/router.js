@@ -66,6 +66,20 @@ const routes = [
     meta: {
       title: '注册'
     }
+  },
+  {
+    name: 'address',
+    component: () => import('./view/address'),
+    meta: {
+      title: '收货地址'
+    }
+  },
+  {
+    name: 'address_create',
+    component: () => import('./view/address/create'),
+    meta: {
+      title: '收货地址'
+    }
   }
 ];
 routes.forEach(route => {

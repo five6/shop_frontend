@@ -23,7 +23,9 @@
     <van-cell-group class="user-group">
       <van-cell icon="records" title="全部订单" is-link />
     </van-cell-group>
-
+    <van-cell-group class="user-group">
+      <van-cell icon="address" title="收获地址" @click="showAddresses()" is-link />
+    </van-cell-group>
     <van-cell-group>
       <van-cell icon="exchange" title="我的积分" is-link />
       <van-cell icon="gold-coin" title="我的优惠券" is-link />
@@ -36,6 +38,14 @@
 import { Row, Col, Icon, Cell, CellGroup } from 'vant';
 
 export default {
+  data() {
+    return {};
+  },
+  methods: {
+    showAddresses() {
+      this.$router.push('address');
+    }
+  },
   components: {
     [Row.name]: Row,
     [Col.name]: Col,

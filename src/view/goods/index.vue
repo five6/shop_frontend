@@ -1,12 +1,12 @@
 <template>
-    <div class="products">
-        <van-swipe class="goods-swipe" :autoplay="0">
+    <div class="goods">
+        <van-swipe class="goods-swipe" :autoplay="3000">
             <van-swipe-item v-for="(product, index) in hottest" :key="index">
                 <img v-lazy="product.image" @click="jumpDetail(product._id)" :src="product.image" />
             </van-swipe-item>
         </van-swipe>
         <div class="goods-hottest">
-          <van-panel style="goods-hottest-header" title="热销产品"/>
+          <div class="goods-hottest-collections-header">热销产品</div>
           <van-panel v-for="(product, index) of products" :key="index">
             <van-cell-group>
               <van-cell>
@@ -100,6 +100,7 @@ export default {
   padding-bottom: 50px;
 
   &-swipe {
+    height: 250px;
     img {
       width: 7.5rem;
       height: 7.5rem;
@@ -130,8 +131,13 @@ export default {
   }
   &-hottest {
     margin-bottom: 100px;
+    padding-top: .22rem;
     .cell-img {
       width: 100%;
+    }
+    &-collections-header {
+      line-height: 0.8rem;
+      margin-left: .22rem;
     }
   }
   &-desc {
@@ -140,4 +146,7 @@ export default {
   }
  
 }
+ .van-panel__header{
+    display: none !important;
+  }
 </style>
