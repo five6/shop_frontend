@@ -1,5 +1,13 @@
 <template>
   <div id="app">
+    <van-nav-bar
+      title="我的商城"
+      left-text="返回"
+      right-text=""
+      left-arrow
+      @click-left="onClickLeft"
+      @click-right="onClickRight"
+    />
     <router-view />
     <!-- <div>
       <van-tabbar v-model="active" @change="change">
@@ -13,7 +21,7 @@
 </template>
 
 <script>
-import { Cell, CellGroup, Icon, Tabbar, TabbarItem } from 'vant';
+import { Cell, CellGroup, Icon, Tabbar, TabbarItem, NavBar } from 'vant';
 
 export default {
   data() {
@@ -22,21 +30,10 @@ export default {
     };
   },
   methods: {
-    change(index) {
-      switch (index) {
-        case 0:
-          this.$router.push('/goods');
-          break;
-        case 1:
-          this.$router.push('/cart');
-          break;
-        case 2:
-          this.$router.push('/profile');
-          break;
-        case 3:
-          this.$router.push('/chat');
-          break;
-      }
+    onClickLeft() {
+      this.$router.go(-1);
+    },
+    onClickRight() {
     }
   },
   components: {
@@ -44,7 +41,8 @@ export default {
     [CellGroup.name]: CellGroup,
     [Icon.name]: Icon,
     [Tabbar.name]: Tabbar,
-    [TabbarItem.name]: TabbarItem
+    [TabbarItem.name]: TabbarItem,
+    [NavBar.name]: NavBar
   }
 };
 </script>

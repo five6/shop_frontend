@@ -39,7 +39,8 @@ import {
   Cell,
   CellGroup,
   Panel,
-  Button
+  Button,
+  NavBar
 } from 'vant';
 import { mapGetters } from 'vuex';
 export default {
@@ -53,7 +54,8 @@ export default {
     [Cell.name]: Cell,
     [Panel.name]: Panel,
     [Button.name]: Button,
-    [CellGroup.name]: CellGroup
+    [CellGroup.name]: CellGroup,
+    [NavBar.name]: NavBar
   },
   data() {
     return {
@@ -130,7 +132,7 @@ export default {
     }
   }
   &-hottest {
-    margin-bottom: 100px;
+    // margin-bottom: 100px;
     padding-top: .22rem;
     .cell-img {
       width: 100%;
