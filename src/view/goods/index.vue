@@ -1,15 +1,29 @@
 <template>
     <div class="products">
-        <van-swipe class="goods-swipe" :autoplay="3000">
-            <van-swipe-item v-for="(product, index) in products" :key="index">
-                <img :src="product.image" />
+        <van-swipe class="goods-swipe" :autoplay="0">
+            <van-swipe-item v-for="(product, index) in hottest" :key="index">
+                <img v-lazy="product.image" @click="jumpDetail(product._id)" :src="product.image" />
             </van-swipe-item>
         </van-swipe>
-         <van-tabbar v-model="active" @change="change">
-            <van-tabbar-item icon="home">首页</van-tabbar-item>
-            <van-tabbar-item icon="records">分类</van-tabbar-item>
-            <van-tabbar-item icon="cart" dot>购物车</van-tabbar-item>
-            <van-tabbar-item icon="contact" info="5">会员中心</van-tabbar-item>
+        <div class="goods-hottest">
+          <van-panel style="goods-hottest-header" title="热销产品"/>
+          <van-panel v-for="(product, index) of products" :key="index">
+            <van-cell-group>
+              <van-cell>
+                <img class="cell-img" v-lazy="product.image" :src="product.image" />
+                <div class="goods-title">{{ product.title }}</div>
+                <div class="goods-price">
+                  {{ formatPrice(product.price) }}
+                </div>
+              </van-cell>
+            </van-cell-group>
+          </van-panel>
+        </div>
+        <van-tabbar v-model="active" @change="change">
+          <van-tabbar-item icon="home">首页</van-tabbar-item>
+          <van-tabbar-item icon="records">分类</van-tabbar-item>
+          <van-tabbar-item icon="cart" dot>购物车</van-tabbar-item>
+          <van-tabbar-item icon="contact" info="5">会员中心</van-tabbar-item>
         </van-tabbar>
     </div>
 </template>
@@ -19,7 +33,13 @@ import {
   Swipe,
   SwipeItem,
   Tabbar,
-  TabbarItem
+  TabbarItem,
+  Lazyload,
+  List,
+  Cell,
+  CellGroup,
+  Panel,
+  Button
 } from 'vant';
 import { mapGetters } from 'vuex';
 export default {
@@ -27,19 +47,34 @@ export default {
     [Swipe.name]: Swipe,
     [SwipeItem.name]: SwipeItem,
     [Tabbar.name]: Tabbar,
-    [TabbarItem.name]: TabbarItem
+    [TabbarItem.name]: TabbarItem,
+    [Lazyload.name]: Lazyload,
+    [List.name]: List,
+    [Cell.name]: Cell,
+    [Panel.name]: Panel,
+    [Button.name]: Button,
+    [CellGroup.name]: CellGroup
   },
   data() {
     return {
-      active: 0
+      active: 0,
+      loading: false,
+      finished: false
     };
   },
   computed: {
     ...mapGetters([
+      'hottest',
       'products'
     ])
   },
   methods: {
+    formatPrice(price) {
+      return '¥' + (price).toFixed(2);
+    },
+    jumpDetail(id) {
+      this.$router.push('/goods/' + id);
+    },
     change(index) {
       switch (index) {
         case 0:
@@ -93,5 +128,16 @@ export default {
       color: #999;
     }
   }
+  &-hottest {
+    margin-bottom: 100px;
+    .cell-img {
+      width: 100%;
+    }
+  }
+  &-desc {
+    font-size: .22rem;
+    color: rgba(0,0,0,.54);
+  }
+ 
 }
 </style>
