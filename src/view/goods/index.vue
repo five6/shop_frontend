@@ -70,6 +70,9 @@ export default {
       'products'
     ])
   },
+  mounted() {
+    this.$store.dispatch('fetchProducts');
+  },
   methods: {
     formatPrice(price) {
       return '¥' + (price).toFixed(2);

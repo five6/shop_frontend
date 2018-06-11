@@ -48,16 +48,17 @@ export default {
       commit(types.API_ERROR_500, data.message);
     }
   },
-  async fetchProducts({ commit, size, page }) {
-    const data = await goodsService.fetchProducts({ size: size, page: page });
+  async fetchProducts({ commit }) {
+    const data = await goodsService.fetchProducts();
+    console.log(data);
     if (data.code === 0) {
       commit(types.FETCH_GOODS, data.data);
     } else {
       commit(types.API_ERROR_500, data.message);
     }
   },
-  async fetchGoods({ commit, size, page }) {
-    const data = await goodsService.goods(size, page);
+  async fetchGoods({ commit }) {
+    const data = await goodsService.goods();
     if (data.code === 0) {
       commit(types.FETCH_GOODS, data.data);
     } else {

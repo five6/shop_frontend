@@ -1,18 +1,16 @@
 'use strict';
 import axios from 'axios';
-const url = 'api/v1/frontend/goods';
+let url = '/api/v1/frontend/goods';
 
 export default {
   fetchProducts(cond) {
-    let u = '';
+    cond = cond || {};
     if (cond.name) {
-      u += '?name=' + cond.name;
-    } else if (cond.page && cond.size) {
-      u += '?page=' + cond.page + '&size=' + cond.size;
+      url += '?name=' + cond.name;
     }
-    axios.get(u);
+    return axios.get(url);
   },
   goods(id) {
-    axios.get(url + '/' + id);
+    return axios.get(url + '/' + id);
   }
 };
