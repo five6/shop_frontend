@@ -30,7 +30,7 @@ module.exports = {
     proxyTable: {
       '/api': {
         target: "http://localhost:7001",
-        pathRewrite: {"^/api" : ''} //后面可以使重写的新路径，一般不做更改
+        pathRewrite: {"^/api" : '/api'} //后面可以使重写的新路径，一般不做更改
       }
     },
     // CSS Sourcemaps off by default because relative paths are "buggy"

@@ -71,7 +71,7 @@ export default {
     ])
   },
   mounted() {
-    this.$store.dispatch('fetchProducts');
+    this.$store.dispatch('fetchProductsByCollectionName', { name: 'hottest' });
   },
   methods: {
     formatPrice(price) {

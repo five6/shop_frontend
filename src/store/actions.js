@@ -48,29 +48,20 @@ export default {
       commit(types.API_ERROR_500, data.message);
     }
   },
-  async fetchProducts({ commit }) {
-    const data = await goodsService.fetchProducts();
-    console.log(data);
-    if (data.code === 0) {
-      commit(types.FETCH_GOODS, data.data);
+  async fetchProductsByCollectionName({ commit }) {
+    const result = await goodsService.fetchProductsByCollectionName();
+    if (result.data && result.data.code === 0) {
+      commit(types.FETCH_GOODS, result.data.data);
     } else {
-      commit(types.API_ERROR_500, data.message);
+      commit(types.API_ERROR_500, result.data && result.data.message);
     }
   },
-  async fetchGoods({ commit }) {
-    const data = await goodsService.goods();
-    if (data.code === 0) {
-      commit(types.FETCH_GOODS, data.data);
+  async fetchGoods({ commit, id }) {
+    const result = await goodsService.goods(id);
+    if (result.data && result.data.code === 0) {
+      commit(types.FETCH_GOODS, result.data.data);
     } else {
-      commit(types.API_ERROR_500, data.message);
-    }
-  },
-  async fetchHottest({ commit }) {
-    const data = await goodsService.fetchProducts({ name: 'hottest' });
-    if (data.code === 0) {
-      commit(types.FETCH_GOODS, data.data);
-    } else {
-      commit(types.API_ERROR_500, data.message);
+      commit(types.API_ERROR_500, result.data && result.data.message);
     }
   }
 };
