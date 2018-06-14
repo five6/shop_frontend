@@ -2,7 +2,8 @@ export const SIGNUP = 'SIGNUP';
 export const SIGNIN = 'SIGNIN';
 export const SIGNOUT = 'SIGNOUT';
 
-export const FETCH_GOODS = 'FETCH_GOODS';
+export const FETCH_PRODUCTS = 'FETCH_PRODUCTS';
+export const FETCH_ONE_PRODUCT = 'FETCH_ONE_PRODUCT';
 export const FETCH_CATEGORY = 'FETCH_CATEGORY';
 
 export const ADD_TO_CART = 'ADD_TO_CART';

@@ -6,7 +6,12 @@ export default {
   [types.SIGNIN](state) {},
   [types.SIGNUP](state) {},
   [types.SIGNOUT](state) {},
-  [types.FETCH_GOODS](state) {},
+  [types.FETCH_PRODUCTS](state, products) {
+    state.products = products;
+  },
+  [types.FETCH_ONE_PRODUCT](state, product) {
+    state.product = product;
+  },
   [types.FETCH_CATEGORY](state) {},
   [types.ADD_TO_CART](state) {},
   [types.REMOVE_FROM_CART](state) {},

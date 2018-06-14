@@ -51,7 +51,7 @@ export default {
   async fetchProductsByCollectionName({ commit }) {
     const result = await goodsService.fetchProductsByCollectionName();
     if (result.data && result.data.code === 0) {
-      commit(types.FETCH_GOODS, result.data.data);
+      commit(types.FETCH_PRODUCTS, result.data.data);
     } else {
       commit(types.API_ERROR_500, result.data && result.data.message);
     }
@@ -59,7 +59,7 @@ export default {
   async fetchGoods({ commit, id }) {
     const result = await goodsService.goods(id);
     if (result.data && result.data.code === 0) {
-      commit(types.FETCH_GOODS, result.data.data);
+      commit(types.FETCH_ONE_PRODUCT, result.data.data);
     } else {
       commit(types.API_ERROR_500, result.data && result.data.message);
     }
