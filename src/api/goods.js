@@ -2,15 +2,18 @@
 import axios from 'axios';
 
 export default {
-  fetchProductsByCollectionName(cond) {
+  fetchProducts(cond) {
     cond = cond || {};
-    let url = '/api/v1/frontend/fetchProductsByCollectionName';
+    let url = '/api/v1/frontend/products';
     if (cond.name) {
-      url += '?' + cond.name;
+      url += '?name=' + cond.name;
     }
     return axios.get(url);
   },
-  goods(id) {
+  fetchProduct(id) {
     return axios.get('/api/v1/frontend/products/' + id);
+  },
+  fetchCategories() {
+    return axios.get('/api/v1/frontend/categories');
   }
 };

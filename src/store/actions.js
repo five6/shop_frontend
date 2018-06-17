@@ -48,18 +48,26 @@ export default {
       commit(types.API_ERROR_500, data.message);
     }
   },
-  async fetchProductsByCollectionName({ commit }) {
-    const result = await goodsService.fetchProductsByCollectionName();
+  async fetchProducts({ commit }, cond) {
+    const result = await goodsService.fetchProducts(cond);
     if (result.data && result.data.code === 0) {
       commit(types.FETCH_PRODUCTS, result.data.data);
     } else {
       commit(types.API_ERROR_500, result.data && result.data.message);
     }
   },
-  async fetchGoods({ commit, id }) {
-    const result = await goodsService.goods(id);
+  async fetchProduct({ commit, id }) {
+    const result = await goodsService.fetchProduct(id);
     if (result.data && result.data.code === 0) {
       commit(types.FETCH_ONE_PRODUCT, result.data.data);
+    } else {
+      commit(types.API_ERROR_500, result.data && result.data.message);
+    }
+  },
+  async fetchCategories({ commit }) {
+    const result = await goodsService.fetch_categories();
+    if (result.data && result.data.code === 0) {
+      commit(types.FETCH_CATEGORIES, result.data.data);
     } else {
       commit(types.API_ERROR_500, result.data && result.data.message);
     }

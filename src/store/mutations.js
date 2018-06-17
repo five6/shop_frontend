@@ -12,7 +12,7 @@ export default {
   [types.FETCH_ONE_PRODUCT](state, product) {
     state.product = product;
   },
-  [types.FETCH_CATEGORY](state) {},
+  [types.FETCH_CATEGORIES](state) {},
   [types.ADD_TO_CART](state) {},
   [types.REMOVE_FROM_CART](state) {},
   [types.ADD_ADDRESS](state) {},
